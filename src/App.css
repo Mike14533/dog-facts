@@ -1,0 +1,22 @@
+
+
+.bg{
+
+    background-repeat: 'no-repeat';
+    width: 100vw;
+    height: 100vh;
+     
+}
+.factText{
+  position: absolute;
+  top: 5%;
+  left: 66%;
+  width: 20%;
+}
+.bonk{
+  position: absolute;
+  top: 26%;
+  left: 48%;
+  width: 10%;
+  opacity: 0.0;
+}

@@ -14,22 +14,30 @@ function App() {
         setDataIsLoaded(true);
       });
 },[]);
-
+const handleClick = async () => {
+  try {const response = await fetch('https://dogapi.dog/api/v2/facts');
+        const json = await response.json();
+     
+        setFact(json.data);
+        
+  }
+catch (err){
+  console.log(err.message);
+}}
+const printFact = fact.map((item) => {
+  return <p className="factText" >   *Barks* {item.attributes.body} *Barks*</p>;
+});
 
  function refreshPage() {
     window.location.reload(false);
   }
   return (
-    <div>
+    <div className = "main">
       <img className = "bg" src="Dog.png"/>
           
 
-            {fact.map((item, index) => {
-              return(
-                 <p className="factText" key={index}>*Barks* {item.attributes.body} *Barks*</p>
-              )
-            })}
-            <button className = "bonk"  onClick={refreshPage}>this a button</button>
+              {printFact}
+            <button className = "bonk"  onClick={handleClick}>this a button</button>
     </div>
       
           
